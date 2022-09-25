@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { TubeProps } from './Line';
+import { TubeProps } from './TubeLine';
 
 
 
@@ -13,4 +13,4 @@ function TubeName (props: TubeProps) : ReactElement  {
   
 }
 
-export default TubeName;
+export { TubeName };

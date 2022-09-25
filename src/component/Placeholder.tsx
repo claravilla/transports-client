@@ -6,4 +6,4 @@ function Placeholder():ReactElement {
     )
 }
 
-export default Placeholder;
+export { Placeholder };

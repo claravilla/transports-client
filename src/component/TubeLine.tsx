@@ -1,5 +1,5 @@
-import TubeName from './TubeName';
-import TubeStatus from './TubeStatus';
+import { TubeName } from './TubeName';
+import { TubeStatus } from './TubeStatus';
 
 export interface TubeProps {
     tube: string,
@@ -7,7 +7,7 @@ export interface TubeProps {
 }
 
 
-function Line (props:TubeProps) {
+function TubeLine (props:TubeProps) {
     return (
         <div className='line'>
             <TubeName tube={props.tube} color={props.color}/>
@@ -16,4 +16,4 @@ function Line (props:TubeProps) {
     )
 }
 
-export default Line
+export { TubeLine } 

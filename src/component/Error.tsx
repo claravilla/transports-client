@@ -8,4 +8,4 @@ function Error(props:{message:string}): ReactElement {
     )
 }
 
-export default Error; 
+export { Error }; 

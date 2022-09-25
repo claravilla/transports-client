@@ -8,4 +8,4 @@ function Header() : ReactElement {
     )
 }
 
-export default Header;
+export { Header };

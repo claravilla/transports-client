@@ -1,24 +1,33 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Error from './Error';
-import Placeholder from './Placeholder';
-
+import { Error } from './Error';
+import { Placeholder } from './Placeholder';
+import { Details } from './Details';
+ 
 function TubeStatus(props: {tube:string}) {
 
     const [tubeStatus, setTubeStatus] = useState('');
+    const [statusDetails, setStatusDetails] = useState('');
     const [errorMessage, setErrorMessage]  = useState('');
     const [isLoading, setIsLoading]  = useState(true);
     const [statusColor,setStatusColor] = useState('');
+   const tubeId: { [key: string]: string; } =  {
+         piccadilly : 'piccadilly',
+         victoria : 'victoria',
+         northern : 'northern',
+         hammersmith : 'hammersmith-city',
+    }
     const tube: string = props.tube.split(' ')[0].toLowerCase();
-    const url: string = `http://localhost:8080/${tube}`;
+    const url: string = `http://localhost:8080/${tubeId[tube]}`;
     let color:string;
 
 
     useEffect(()=> {
         axios.get(url)
         .then((data)=> {
-            setTubeStatus(data.data);
-            setStatusColor(findStatusColor(data.data));
+            setTubeStatus(data.data.status);
+            setStatusDetails(data.data.details);
+            setStatusColor(findStatusColor(data.data.status));
             setIsLoading(false);
         })
         .catch((error) => {
@@ -49,34 +58,19 @@ function TubeStatus(props: {tube:string}) {
         return  <Placeholder/>
     }
 
-    if (!isLoading && errorMessage!=='') {
+    if (errorMessage!=='') {
         return <Error message={errorMessage}/>
     }
 
     return (<div className={`tube ${statusColor}`}> 
-  <p>{tubeStatus}</p></div>)
+  <p>{tubeStatus}</p>
+
+  { statusDetails!=='' && <Details details={statusDetails}/> }
+
+  </div>)
 
 
-    // return (
-    
-    //     {(isLoading) &&
-    //         <Placeholder/>
-    //     }
-
-    //     {(!isLoading && errorMessage!=='') &&
-    //         <Error message={errorMessage}/>
-    //     }
-
-
-    //      {(!isLoading && errorMessage==='') &&
-    //         <div className={`tube ${statusColor}`}> 
-    //     {tubeStatus}</div>
-       
-
-    //      }
    
-     
-    // )
 }
 
-export default TubeStatus;
+export  {TubeStatus};
