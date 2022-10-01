@@ -1,7 +1,7 @@
 {
   "name": "transports-react",
   "version": "0.1.0",
-  "homepage": "https://claravilla.github.io/react-gh-pages",
+  "homepage": "https://claravilla.github.io/transports-client",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
