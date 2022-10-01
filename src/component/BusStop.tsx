@@ -10,7 +10,7 @@ function BusStop(props: {name: string, id: string}) {
    const [isLoading, setIsLoading]  = useState(true);
 
    useEffect(()=> {
-    const url = `${process.env.REACT_APP_SERVER_URL}/stop/${props.id}`;
+    const url = `https://transports-server-12.herokuapp.com/stop/${props.id}`;
     axios.get(url)
     .then(data => {
          setBusTimes(data.data);
