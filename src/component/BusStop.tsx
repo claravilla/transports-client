@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { BusLine } from './BusLine'
+import { Placeholder } from  './Placeholder';
+import { Error } from './Error';
 
 
 
@@ -22,9 +24,14 @@ function BusStop(props: {name: string, id: string}) {
     })
 
    }, []);
-
-   console.log(busTimes);
    
+   if (isLoading) {
+       return  <Placeholder/>
+   }
+
+   if (errorMessage!=='') {
+    return <Error message={errorMessage}/>
+}
    const timetable = busTimes.map((eachBusTime)=>{
        return  ( <BusLine bus={eachBusTime.bus} time={eachBusTime.time}/>)
    })
@@ -32,10 +39,8 @@ function BusStop(props: {name: string, id: string}) {
     return (
     <div>
      <h3>{props.name}</h3>
-<div>{timetable}</div>
- </div>
-
-
+     <div>{timetable}</div>
+    </div>
     )
 }
 
