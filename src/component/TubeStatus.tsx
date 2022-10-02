@@ -18,8 +18,7 @@ function TubeStatus(props: {tube:string}) {
          hammersmith : 'hammersmith-city',
     }
     const tube: string = props.tube.split(' ')[0].toLowerCase();
-    const url: string = `https://transports-server-12.herokuapp.com/${tubeId[tube]}`;
-    console.log(url);
+    const url: string = `${process.env.REACT_APP_SERVER_URL}/${tubeId[tube]}`;
     let color:string;
 
 

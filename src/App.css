@@ -66,25 +66,45 @@ h2 {
     color: black
 }
 
-.busLine {
-  display:flex;
-  width:35%;
-  border: 1px solid black;
+
+
+@media (max-width: 500px) {
+  .busLine {
+    display:flex;
+    width:100%;
+    border: 1px solid black;
+    text-align: center;
+  }
 }
 
-.busNumber {
-  width: 15%;
-  border-right:  1px solid black;
-  padding: 5px;
+@media (min-width: 501px) {
+  .busLine {
+    display:flex;
+    width:40%;
+    border: 1px solid black;
+    text-align: center;
+  }
 }
+
+  .busNumber {
+    width: 20%;
+    border-right:  1px solid black;
+    padding: 5px;
+  }
+
 
 .busTime {
-  width: 85%;
+  width: 80%;
   padding: 5px;
-  text-align: center;
 }
 
 .due {
   background-color: red;
   color: white
+}
+
+.busFilter {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
 }
