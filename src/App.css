@@ -68,7 +68,7 @@ h2 {
 
 .busLine {
   display:flex;
-  width:30%;
+  width:35%;
   border: 1px solid black;
 }
 
@@ -81,6 +81,7 @@ h2 {
 .busTime {
   width: 85%;
   padding: 5px;
+  text-align: center;
 }
 
 .due {
