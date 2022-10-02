@@ -1,7 +1,7 @@
 {
   "name": "transports-client",
   "version": "0.1.0",
-  "homepage": "https://claravilla.github.io/transports-client",
+  "homepage": "https://claravilla.github.io/transports",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
