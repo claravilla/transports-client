@@ -33,7 +33,7 @@ function BusStop(props: {name: string, id: string}) {
     return <Error message={errorMessage}/>
 }
    const timetable = busTimes.map((eachBusTime)=>{
-       return  ( <BusLine bus={eachBusTime.bus} time={eachBusTime.time}/>)
+       return  <BusLine bus={eachBusTime.bus} time={eachBusTime.time}/>
    })
 
     return (
