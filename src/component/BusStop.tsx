@@ -14,11 +14,9 @@ function BusStop(props: {name: string, id: string}) {
 
    useEffect(()=> {
     const url = `${process.env.REACT_APP_SERVER_URL}/StopPoint/${props.id}/Arrivals?app_id=${process.env.REACT_APP_PRIMARY_KEY}&app_key=${process.env.REACT_APP_SECONDARY_KEY}`;
-console.log(url);
     axios.get(url)
     .then(data => {
         const results:Array<{[key: string]: any}> = data.data;
-        console.log(results);
         let busTimes = results.map((eachBus)=>{
             return {
                 bus:eachBus.lineId, 
