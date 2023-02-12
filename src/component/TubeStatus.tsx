@@ -18,20 +18,22 @@ function TubeStatus(props: {tube:string}) {
          hammersmith : 'hammersmith-city',
     }
     const tube: string = props.tube.split(' ')[0].toLowerCase();
-    const url: string = `${process.env.REACT_APP_SERVER_URL}/${tubeId[tube]}`;
+    const url: string = `${process.env.REACT_APP_SERVER_URL}/Line/${tubeId[tube]}/Status?app_id=${process.env.REACT_APP_PRIMARY_KEY}&app_key=${process.env.REACT_APP_SECONDARY_KEY}`;
     let color:string;
 
 
     useEffect(()=> {
         axios.get(url)
         .then((data)=> {
-            setTubeStatus(data.data.status);
-            setStatusDetails(data.data.details);
-            setStatusColor(findStatusColor(data.data.status));
+            const status: string = data.data[0].lineStatuses[0].statusSeverityDescription;
+            const details: string = data.data[0].lineStatuses[0].reason;
+            setTubeStatus(status);
+            setStatusDetails(details);
+            setStatusColor(findStatusColor(status));
             setIsLoading(false);
         })
         .catch((error) => {
-            setErrorMessage(error.response.data);
+            setErrorMessage(error.response.data.message);
             setIsLoading(false);
         })
     },[]);
