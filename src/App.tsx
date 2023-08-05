@@ -13,7 +13,7 @@ function App() {
     <TubeLine tube='Northern Line' color='black'/>
     <TubeLine tube='Hammersmith and City Line' color='pink'/>
     <Title text='Bus'/>
-    <BusStop name='Liverpool rd' id='490009224Z'/>
+    <BusStop name='Holloway rd' id='490000114Y'/>
     <BusStop name='Holloway rd station' id='490000114U'/>
     </div>
   );
